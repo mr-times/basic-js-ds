@@ -33,8 +33,6 @@ class Queue {
         }
         target.next = new ListNode(value);
       }
-      
- 
   }
 
   dequeue() {
@@ -44,8 +42,6 @@ class Queue {
     return target.value;
   }
 }
-const abc = new Queue(5);
-console.log(abc.getUnderlyingList());
 
 module.exports = {
   Queue
