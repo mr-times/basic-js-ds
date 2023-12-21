@@ -9,15 +9,15 @@ const { Node } = require('../extensions/list-tree.js');
 class BinarySearchTree {
 
   constructor() {
-    this.root = null;
+    this.treeRoot = null;
   }
 
   root() {
-    return this.root;
+    return this.treeRoot;
   }
 
   add(data) {
-    this.root = addData(this.root, data);
+    this.treeRoot = addData(this.treeRoot, data);
 
 
     function addData(node, data) {
@@ -40,14 +40,14 @@ class BinarySearchTree {
   }
 
   has(data) {
-    return hasData(this.root, data);
+    return hasData(this.treeRoot, data);
 
 
     function hasData(node, data) {
       if (!node) {
         return false;
       } else if (node.data === data) {
-        return node;
+        return true;
       }
 
 
@@ -60,12 +60,12 @@ class BinarySearchTree {
   }
 
   find(data) {
-    return findData(this.root, data);
+    return findData(this.treeRoot, data);
 
 
     function findData(node, data) {
       if (!node) {
-        return false;
+        return null;
       } else if (node.data === data) {
         return node;
       }
@@ -80,7 +80,7 @@ class BinarySearchTree {
   }
 
   remove(data) {
-    this.root = removeData(this.root, data);
+    this.treeRoot = removeData(this.treeRoot, data);
 
     function removeData(node, data) {
       if (!node) {
@@ -127,11 +127,11 @@ class BinarySearchTree {
   }
 
   min() {
-    if (!this.root) {
-      return;
+    if (!this.treeRoot) {
+      return undefined;
     }
 
-    let node = this.root;
+    let node = this.treeRoot;
     while (node.left) {
       node = node.left;
     }
@@ -140,11 +140,11 @@ class BinarySearchTree {
   }
 
   max() {
-    if (!this.root) {
-      return;
+    if (!this.treeRoot) {
+      return undefined;
     }
 
-    let node = this.root;
+    let node = this.treeRoot;
     while (node.right) {
       node = node.right;
     }
@@ -154,7 +154,11 @@ class BinarySearchTree {
 }
 
 const bst = new BinarySearchTree();
-console.log(bst.root);
+console.log(bst.treeRoot);
+
+
+console.log(`maximum: ${bst.max()}`);
+console.log(`minimum: ${bst.min()}`);
 bst.add(10);
 bst.add(5);
 bst.add(17);
@@ -165,7 +169,8 @@ bst.add(137);
 bst.add(2);
 bst.add(22);
 bst.add(35);
-console.log(bst);
+
+console.log(bst.treeRoot);
 console.log(bst.find(17));
 console.log(`maximum: ${bst.max()}`);
 console.log(`minimum: ${bst.min()}`);
@@ -180,6 +185,7 @@ console.log(`5 exist ${bst.has(5)}`);
 console.log(`maximum: ${bst.max()}`);
 console.log(`minimum: ${bst.min()}`);
 
+console.log(bst.treeRoot);
 
 module.exports = {
   BinarySearchTree
