@@ -153,40 +153,6 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree();
-console.log(bst.treeRoot);
-
-
-console.log(`maximum: ${bst.max()}`);
-console.log(`minimum: ${bst.min()}`);
-bst.add(10);
-bst.add(5);
-bst.add(17);
-bst.add(12);
-bst.add(6);
-bst.add(18);
-bst.add(137);
-bst.add(2);
-bst.add(22);
-bst.add(35);
-
-console.log(bst.treeRoot);
-console.log(bst.find(17));
-console.log(`maximum: ${bst.max()}`);
-console.log(`minimum: ${bst.min()}`);
-console.log(`17 exist ${bst.has(17)}`);
-console.log(`10 exist ${bst.has(10)}`);
-console.log(`5 exist ${bst.has(5)}`);
-bst.remove(17);
-console.log(`17 exist ${bst.has(17)}`);
-console.log(`10 exist ${bst.has(10)}`);
-console.log(`5 exist ${bst.has(5)}`);
-
-console.log(`maximum: ${bst.max()}`);
-console.log(`minimum: ${bst.min()}`);
-
-console.log(bst.treeRoot);
-
 module.exports = {
   BinarySearchTree
 };
