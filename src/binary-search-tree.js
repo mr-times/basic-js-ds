@@ -12,10 +12,6 @@ class BinarySearchTree {
     this.root = null;
   }
 
-    isEmpty() {
-      return this.root === null;
-    }
-
   root() {
     return this.root;
   }
@@ -39,6 +35,7 @@ class BinarySearchTree {
       }
 
       return node;
+
     }
   }
 
@@ -131,28 +128,57 @@ class BinarySearchTree {
 
   min() {
     if (!this.root) {
-      return 'Tree does not exist';
+      return;
     }
 
-    while (this.root.left) {
-      this.root = this.root.left;
+    let node = this.root;
+    while (node.left) {
+      node = node.left;
     }
 
-    return this.root.data;
+    return node.data;
   }
 
   max() {
     if (!this.root) {
-      return 'Tree does not exist';
+      return;
     }
 
-    while (this.root.right) {
-      this.root = this.root.right;
+    let node = this.root;
+    while (node.right) {
+      node = node.right;
     }
 
-    return this.root.data;
+    return node.data;
   }
 }
+
+const bst = new BinarySearchTree();
+console.log(bst.root);
+bst.add(10);
+bst.add(5);
+bst.add(17);
+bst.add(12);
+bst.add(6);
+bst.add(18);
+bst.add(137);
+bst.add(2);
+bst.add(22);
+bst.add(35);
+console.log(bst);
+console.log(bst.find(17));
+console.log(`maximum: ${bst.max()}`);
+console.log(`minimum: ${bst.min()}`);
+console.log(`17 exist ${bst.has(17)}`);
+console.log(`10 exist ${bst.has(10)}`);
+console.log(`5 exist ${bst.has(5)}`);
+bst.remove(17);
+console.log(`17 exist ${bst.has(17)}`);
+console.log(`10 exist ${bst.has(10)}`);
+console.log(`5 exist ${bst.has(5)}`);
+
+console.log(`maximum: ${bst.max()}`);
+console.log(`minimum: ${bst.min()}`);
 
 
 module.exports = {
